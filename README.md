@@ -4,14 +4,14 @@
 
 ### 1. Introduction
 
-For this assignment, you can work in groups of two. 
+For this assignment, you can work in groups of two.
 
 You will be using the [MovieLens 100K Dataset][1-1], a dataset containing
 100,000 movie ratings from the MovieLens website. You will create an
 [entity-relationship model][1-2] for the data, load the dataset in a SQL-server
 ([PostgreSQL][1-3]) and a NoSQL document store ([MongoDB][1-4]) and perform
 some queries on the database.
- 
+
 First, download the 100K dataset (don't forget to validate the download with
 the checksum). You will only need the following files from the archive:
 
@@ -28,13 +28,17 @@ the checksum). You will only need the following files from the archive:
 
 ### 2. Entity-relationship model
 
-Create a data model for this data set.  
+Create a data model for this data set.
 
 ### 3. PostgreSQL
 
 #### 3.1 Installation
 
-Install the PostgreSQL database on your machine.
+Install the PostgreSQL database on your machine. Download the software directly
+from the [official website][3-1] or use the package from your Linux
+distribution.
+
+[3-1]: http://www.postgresql.org/download/
 
 #### 3.2 Loading the data
 
@@ -45,6 +49,7 @@ the data might be needed.
 
 Write and perform SQL queries that answer the following questions:
 
+ - Which movie has received the most ratings?
  - What is the average rating for the movie 'Star Wars'?
  - What is the occupation and age of the user that has given the most ratings?
 
@@ -52,12 +57,35 @@ Write and perform SQL queries that answer the following questions:
 
 #### 4.1 Installation
 
-Install MongoDB on your machine.
+Install MongoDB on your machine. Download the software directly from the
+[official website][4-1] or use the package from your Linux distribution.
+
+[4-1]: https://www.mongodb.org/downloads
 
 #### 4.2 Loading the data
 
 Store the data in a single collection where every document contains a rating.
-The user and movie information is stored in subdocuments. 
+The user and movie information is stored in subdocuments. For example, here is
+the json document of a single rating:
+
+    {
+        "movie": {
+            "title": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb (1963)",
+            "release_date": "01-Jan-1963",
+            "genres": [
+                "Sci-Fi",
+                "War"
+            ],
+        },
+        "rating": 5,
+        "time stamp": 888625200,
+        "user": {
+            "age": 24,
+            "gender": "M",
+            "occupation": "student",
+            "zip": "41850"
+        }
+    }
 
 First convert the data to a single json file with this structure using your
 favorite text processing tool (Python, Awk, etc.). If you don't know how to
@@ -67,8 +95,8 @@ Ernq va gur h.hfre naq h.vgrz qngn naq fgber gurfr va gjb ybbxhc gnoyrf
 (unfuznc, qvpgvbanel). Gura ernq gur h.qngn svyr naq hfr gur ybbxhc gnoyrf gb
 bhgchg gur qrabeznyvmrq qngn.
 
-If you are still stuck after this hint, use our Python `movielens2mongo.py`
-program in this repository. 
+If you are still stuck after this, use our Python `movielens2mongo.py` script
+in this repository.
 
 #### 4.3 Simple queries
 
@@ -82,6 +110,8 @@ language][4-1].
 If you want to practice some more advanced queries, try answering the following
 questions:
 
+ - How many different genres does a movie have on average?
+ - What is the male/female distribution over both the userbase and the ratings?
  - What is the most controversial movie (has the highest variance in its
    ratings)?
 
