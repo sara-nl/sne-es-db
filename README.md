@@ -46,7 +46,7 @@ the data might be needed.
 Write and perform SQL queries that answer the following questions:
 
  - What is the average rating for the movie 'Star Wars'?
- - What is the name and age of the user that has given the most ratings?
+ - What is the occupation and age of the user that has given the most ratings?
 
 ### 4. MongoDB
 
