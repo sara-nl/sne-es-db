@@ -359,7 +359,6 @@ F1:
 
 - NoSQL (key -> row) and full SQL
 
-
 ![right 100%](sources/f1_5.png) 
 
 ---
