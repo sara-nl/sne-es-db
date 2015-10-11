@@ -28,7 +28,7 @@ the checksum). You will only need the following files from the archive:
 
 ### 2. Entity-relationship model
 
-Create a data model for this data set. First you will need to devise a simple  E/R model for the data. What are the entities, attributes and relations? 
+Create a data model for this data set. First you will need to devise a simple  ER model for the data. What are the entities, attributes and relations? 
 - Identify the strong and weak entities in the model
 - Identify the relations between the entities and determine their cardinality
 - Identify the attributes of the entities and relations
@@ -37,7 +37,7 @@ Create a data model for this data set. First you will need to devise a simple  E
 
 Hand in a diagram of your model. 
 
-Based on this model. Convert the E/R model into relations (tables) according to the 8 steps:
+Based on this model. Convert the ER model into relations (tables) according to the 8 steps:
 
 1. For each strong entity create a table with columns for each simple attribute. The key attribute becomes the primary key.
 2. For each weak entity create a table with columns for each simple attribute and include columns for the primary keys of those entities on which the entity depends (foreign keys).
@@ -47,6 +47,12 @@ Based on this model. Convert the E/R model into relations (tables) according to 
 6. When an entity has a multi-valued attribute, create a table with a column as foreign key to the entity and a column for the multi-valued attribute
 7. When more than two entities participate in a relationship then a table must be created consisting of foreign keys to those entities.
 8. When a subtyping is defined by attributes create separate tables for each subtype consisting of those attributes which are peculiar to the subtype
+
+Finally check your database model and try to see if any further normalization is required.
+
+As a reference for ER modelling please see [tutorialspoint][2-1] section on the ER model. This site has an excellent section on normalization as well.
+
+[2-1]: http://www.tutorialspoint.com/dbms/er_model_basic_concepts.htm
 
 ### 3. Implementation in PostgreSQL
 
@@ -62,7 +68,7 @@ After installation, you will need to configure postgres and create a database fo
 
 #### 3.2 Loading the data
 
-Load the data in the database according to the relations (tables) you derived from the E/R model. You will first need to use the [create table]:[3-2] commands to create the neccessary tables. Do not forget to correctly create the foreign keys and other constraints. 
+Load the data in the database according to the relations (tables) you derived from the E/R model. You will first need to use the [create table][3-2] commands to create the neccessary tables. Do not forget to correctly create the foreign keys and other constraints. 
 
 Next, some preprocessing of the raw data might be needed before you can insert the data. Use the text manipulation tools you learned about to convert the data in to appropriate input (e.g. csv). You can then use the [copy][3-3] command to import data.
 
@@ -75,7 +81,7 @@ Create a project in your version control system for these excercises and commit 
 [3-4]: http://www.postgresql.org/docs/current/static/sql-commands.html
 
 #### 3.3 Simple queries
-Once the data is imported you can use the SQL data manipulation commands to browse your database. Try some simple queries first ant then write and perform SQL queries that answer the following questions:
+Once the data is imported you can use the SQL data manipulation commands to browse your database. Try some simple queries first and then write and perform SQL queries that answer the following questions:
 
  - Which movie has received the most ratings?
  - What is the average rating for the movie 'Star Wars'?
@@ -149,17 +155,17 @@ questions:
 
 If you have time, or are interested, we have provided some extra references for extra reading and/or watching. In no particular order:
 
-[Schema on read vs. schema on write: A story about George][6-1]
-[Composing and Scaling Data Platforms][6-1]
-[The Essence of Databases][6-3]
-[DBMS2 blog][6-4]
-[Guide to ACID and transactions][6-5]
-[Locking basics][6-6]
-[Visual explanation of SQL Joins][6-7]
-[DBMS tutorial][6-8]
-[MongoDB is Web Scale][6-9]
-[Why you should never use MongoDB][6-10]
-[MongoDB is growing up][6-11]
+- [Schema on read vs. schema on write: A story about George][6-1]
+- [Composing and Scaling Data Platforms][6-1]
+- [The Essence of Databases][6-3]
+- [DBMS2 blog][6-4]
+- [Guide to ACID and transactions][6-5]
+- [Locking basics][6-6]
+- [Visual explanation of SQL Joins][6-7]
+- [DBMS tutorial][6-8]
+- [MongoDB is Web Scale][6-9]
+- [Why you should never use MongoDB][6-10]
+- [MongoDB is growing up][6-11]
 
 [6-1]: http://www.benstopford.com/2012/06/03/a-story-about-george/
 [6-2]: http://www.benstopford.com/2015/04/28/elements-of-scale-composing-and-scaling-data-platforms/
