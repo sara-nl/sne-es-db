@@ -68,6 +68,8 @@ Next, some preprocessing of the raw data might be needed before you can insert t
 
 Look [here][3-4] for a full reference of all postgresql SQL commands and syntax.
 
+Create a project in your version control system for these excercises and commit all conversion scripts and SQL-scripts to your version control system.
+
 [3-2]: http://www.postgresql.org/docs/current/static/sql-createtable.html
 [3-3]: http://www.postgresql.org/docs/current/interactive/sql-copy.html
 [3-4]: http://www.postgresql.org/docs/current/static/sql-commands.html
