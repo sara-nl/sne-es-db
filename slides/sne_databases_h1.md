@@ -23,7 +23,7 @@ autoscale: true
 - What is a database
 - Relational concepts
 - SQL Basics
-- Database design: E/R modelling
+- Database design: ER modelling
 - Database design: Normalization
 - Concepts: Indexes, Transactions, ACID 
 
@@ -44,7 +44,7 @@ autoscale: true
 # Today
 
 ## Part III: Hands-on PostgreSQL and MongoDB
-- Create an E/R model
+- Create an ER model
 - Implement this in PostgreSQL
 - Denormalize and implement in MongoDB
 
@@ -54,7 +54,7 @@ autoscale: true
 
 # What is a DBMS?
 
-Consider a manufacturing firm whishing to computerize stock control:
+Consider a manufacturing firm wishing to computerize stock control:
 
 1. *Production*: `{StockNO, Description, Level, Re_Order_Level, Unit_Cost}`
 2. *Sales*: `{Customer_Name, Address, Invoice_No, ItemNo, Description, Amount, Item_Cost, Order_Cost, Credit_Limit}`
@@ -85,7 +85,7 @@ DBMS: Reduce redundancy and entropy:
 ---
 
 # Relational databases
-__Two dimensional tables of rows and columns:__
+__Two-dimensional tables of rows and columns:__
 
 *Tables*: relations
 *Rows*: tuples
@@ -115,7 +115,7 @@ Derived: JOIN, INTERSECT, DIVIDE
 
 # Structured Query Language: SQL
 
-- SQL is a __declaritive language__ translated to relational algebra operations
+- SQL is a __declarative language__ translated to relational algebra operations
 - SQL has been the __de facto industry standard__ for relational systems
 - SQL is a complete database language for:
     1. __data definition__
@@ -128,7 +128,7 @@ Derived: JOIN, INTERSECT, DIVIDE
 
 __SQL has four data manipulation commands:__
 
-*SELECT*: for retreiving data
+*SELECT*: for retrieving data
 *INSERT*: for inserting data
 *UPDATE*: for altering data 
 *DELETE*: for removing data
@@ -138,7 +138,7 @@ __SQL has four data manipulation commands:__
 # Data manipulation: SELECT
 
 ```SQL
-SELECT column_name,column_name
+SELECT column_name, column_name
 FROM table_name;
 ```
 
@@ -161,7 +161,7 @@ FROM table_name
 # Data manipulation: SELECT ... WHERE
 
 ```SQL
-SELECT column_name,column_name
+SELECT column_name, column_name
 FROM table_name
 WHERE column_name operator value;
 ```
@@ -182,19 +182,19 @@ Operators:
 And:
 
 ```SQL
-SELECT column_name1,column_name2
+SELECT column_name1, column_name2
 FROM table_name
-WHERE column_name1 operator value
-AND column_name2 operator value;
+WHERE column_name1 operator value1
+AND column_name2 operator value2;
 ```
 
 Or:
 
 ```SQL
-SELECT column_name1,column_name2
+SELECT column_name1, column_name2
 FROM table_name
-WHERE column_name1 operator value
-OR column_name2 operator value;
+WHERE column_name1 operator value1
+OR column_name2 operator value2;
 ```
 
 ---
@@ -202,7 +202,7 @@ OR column_name2 operator value;
 # Data manipulation: Subqueries
 
 ```SQL
-SELECT column_name1,column_name2
+SELECT column_name1, column_name2
 FROM table_name
 WHERE column_name1 IN 
     ( SELECT column_name3
@@ -217,9 +217,9 @@ Note the scope of the subquery
 # Data manipulation: Joins
 
 ```SQL
-SELECT t11.column_name1,t1.column_name3
+SELECT t1.column_name1, t2.column_name3
 FROM table_name1 t1, table_name2 t2
-WHERE t1.column_name1 == t2.column_name1
+WHERE t1.column_name1 = t2.column_name1
 ```
 
 Or:
@@ -228,7 +228,7 @@ Or:
 SELECT column_name(s)
 FROM table1
 INNER JOIN table2
-ON table1.column_name=table2.column_name;
+ON table1.column_name = table2.column_name;
 ```
 
 Note: `JOIN` is the same as `INNER JOIN`
@@ -243,14 +243,14 @@ Note: `JOIN` is the same as `INNER JOIN`
 SELECT column_name(s)
 FROM table1
 LEFT JOIN table2
-ON table1.column_name=table2.column_name;
+ON table1.column_name = table2.column_name;
 ```
  
 ```SQL
 SELECT column_name(s)
 FROM table1
 FULL OUTER JOIN table2
-ON table1.column_name=table2.column_name;
+ON table1.column_name = table2.column_name;
 ```
 
 Note: 'RIGHT/LEFT JOIN' is the same as `RIGHT/LEFT OUTER JOIN`
@@ -272,7 +272,7 @@ __SQL has several data definition commands:__
 
 *CREATE TABLE*: for creating and specifying a table
 *ALTER TABLE*: for altering a table
-*DROP TABLE*: for droping a table
+*DROP TABLE*: for dropping a table
 
 ---
 
@@ -322,7 +322,7 @@ WHERE some_column=some_value;
 ---
 
 # SQL summary
-- Declaritive language for:
+- Declarative language for:
     - data definition
     - data manipulation 
     - data control
@@ -331,18 +331,18 @@ WHERE some_column=some_value;
 
 ---
 
-# Database design: E/R modelling
+# Database design: ER modelling
 
 Entity/relationship modelling: an approach to semantic modelling originally defined by P. Chen[^2]
 
-Three fundamental components for an E/R model of a database:
+Three fundamental components for an ER model of a database:
 1. __Entities__: items in the real world capable of unique existence
 2. __Attributes__: things describing an entity. Includes a key attribute: that part of an entity which gives it a unique identity
 3. __Relationships__: a relationship represents the interaction between entities. Each relationship has a cardinality indicating the number of entities
 
 ---
 
-# Database design: E/R modelling - Entities
+# Database design: ER modelling - Entities
 
 ^Not always obvious if something should be modelled as an entity or attribute. 
 For example a weak entity: a registration for a course depends on a course and a student. For example of a subtype: rekening: spaar, betaal (deposit, current)
@@ -358,7 +358,7 @@ We can use __subtyping__
 
 ---
 
-# Database design: E/R modelling - Attributes
+# Database design: ER modelling - Attributes
 
 __Types of attributes__:
 - Simple: atomic values
@@ -374,7 +374,7 @@ __Entity sets and keys__:
 
 ---
 
-# Database design: E/R modelling - Relationships
+# Database design: ER modelling - Relationships
 Like entities relationships can have __descriptive attributes__
 
 __Cardinality__ defines the number of participating entities:
@@ -385,27 +385,33 @@ __Cardinality__ defines the number of participating entities:
 
 ---
 
-### A simple E/R diagram
+### A simple ER diagram
 
 ![original 250%](sources/ermodel.jpg)
 
 ---
 
-# From E/R model to database: 8 steps
+# From ER model to database: 8 steps (1/2)
+
 1. For each strong entity create a table with columns for each simple attribute. The key attribute becomes the primary key
 2. For each weak entity create a table with columns for each simple attribute and include columns for the primary keys of those entities on which the entity depends (foreign keys)
 3. When two entities are in a one-to-many relationship, the entity with the many cardinality must have a foreign key representing this relationship
 4. When two entities are in a one-to-one relationship, a foreign key must be included in one of the two
+
+---
+
+# From ER model to database: 8 steps (2/2)
+
 5. When two entities are in a many-to-many relationship a table must be created consisting of foreign keys for the two entities
 6. When an entity has a multi-valued attribute, create a table with a column as foreign key to the entity and a column for the multi-valued attribute
 7. When more than two entities participate in a relationship then a table must be created consisting of foreign keys to those entities
-8. When a subtyping is defined by attributes create separate tables for each subtype consisting of those attributes which are peculier to the subtype
+8. When a subtyping is defined by attributes create separate tables for each subtype consisting of those attributes which are peculiar to the subtype
 
 ---
 
 # Database design: Normalization
 
-Normalization: ensure efficienct data structures
+Normalization: ensure efficient data structures
 
 Efficient data structures:
 
@@ -428,7 +434,7 @@ Common problem: represent entities as (collection) of attributes
 
 # Database design: Normal forms
 
-A good database schema is in BCNF.
+A good database schema is in BCNF
 
 Normal forms: 
 
@@ -442,7 +448,7 @@ Normal forms:
 
 # Concepts: Indexes
 
-Extra data structure to __speed up__ access to a set of records.
+Extra data structure to __speed up__ access to a set of records
 <br>
 ![original 100%](sources/index.gif)
 
