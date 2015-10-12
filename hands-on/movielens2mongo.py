@@ -12,6 +12,7 @@ def parse_movie(line):
     fields = line.strip().split('|', 23)
     key = fields[0]
     movie = dict(zip(mapping, fields[1:4]))
+    del movie['video_release_date']
     movie['genres'] = [x[1] for x in zip(fields[5:], genre_list) if x[0] == '1']
     return (key, movie)
 
@@ -20,6 +21,7 @@ def parse_user(line):
     fields = line.strip().split('|', 5)
     key = fields[0]
     user = dict(zip(mapping, fields[1:]))
+    user['age'] = int(user['age'])
     return (key, user)
 
 def process_file(filename, parse_func):
@@ -35,6 +37,8 @@ def process_ratings(in_file, out_file, movies, users):
             rating = dict(zip(mapping, fields))
             rating['user'] = users[rating['user']]
             rating['movie'] = movies[ rating['movie']]
+            rating['timestamp'] = int(rating['timestamp'])
+            rating['rating'] = int(rating['rating'])
             fout.write(json.dumps(rating)+'\n')
 
 if __name__ == '__main__':
