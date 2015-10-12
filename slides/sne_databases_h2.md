@@ -346,7 +346,7 @@ __F1__:
 
 ---
 ### NewSQL
-F1:
+__F1__:
 - 100 TB of uncompressed data 
     - Over 5 data centers
     - Five nines uptime
