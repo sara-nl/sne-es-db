@@ -60,7 +60,7 @@ Consider a manufacturing firm whishing to computerize stock control:
 2. *Sales*: `{Customer_Name, Address, Invoice_No, ItemNo, Description, Amount, Item_Cost, Order_Cost, Credit_Limit}`
 3. *Finance*: `{CustomerName, Invoice_No, Order_Cost, Payment_Received, Credit_Limit}`
 
-Straightforward to implement as applications with dedicated files; but..
+Straightforward to implement as applications with dedicated files; but...
 
 ---
 
@@ -70,7 +70,7 @@ DBMS: Reduce redundancy and entropy:
 
 1. Ambiguity: `ItemNo == StockNO`?
 2. Inconsistency: 
-    - update propagation: updates necessary on all three applications.
+    - update propagation: updates necessary on all three applications
     - value/type inconsistency
 
 ---
@@ -210,7 +210,7 @@ WHERE column_name1 IN
       WHERE column_name3 operator value );
 ```
 
-Note: the scope of the subquery
+Note the scope of the subquery
 
 ---
 
@@ -270,7 +270,7 @@ Note: 'RIGHT/LEFT JOIN' is the same as `RIGHT/LEFT OUTER JOIN`
 
 __SQL has several data definition commands:__
 
-*CREATE TABLE*: for creating and specifying a table.
+*CREATE TABLE*: for creating and specifying a table
 *ALTER TABLE*: for altering a table
 *DROP TABLE*: for droping a table
 
@@ -333,12 +333,12 @@ WHERE some_column=some_value;
 
 # Database design: E/R modelling
 
-Entity/relationship modelling: an approach to semantic modelling originally defined by P. Chen[^2].
+Entity/relationship modelling: an approach to semantic modelling originally defined by P. Chen[^2]
 
 Three fundamental components for an E/R model of a database:
-1. __Entities__: items in the real world capable of unique existence.
+1. __Entities__: items in the real world capable of unique existence
 2. __Attributes__: things describing an entity. Includes a key attribute: that part of an entity which gives it a unique identity
-3. __Relationships__: a relationship represents the interaction between entities. Each relationship has a cardinality indicating the number of entities.
+3. __Relationships__: a relationship represents the interaction between entities. Each relationship has a cardinality indicating the number of entities
 
 ---
 
@@ -354,7 +354,7 @@ __Strong entity__: Capable of 'independent' existence
 
 __Weak entity__: Can only exist in terms of the relationship in which it participates 
 
-We can use __subtyping__. 
+We can use __subtyping__
 
 ---
 
@@ -392,13 +392,13 @@ __Cardinality__ defines the number of participating entities:
 ---
 
 # From E/R model to database: 8 steps
-1. For each strong entity create a table with columns for each simple attribute. The key attribute becomes the primary key.
-2. For each weak entity create a table with columns for each simple attribute and include columns for the primary keys of those entities on which the entity depends (foreign keys).
-3. When two entities are in a one-to-many relationship, the entity with the many cardinality must have a foreign key representing this relationship.
-4. When two entities are in a one-to-one relationship, a foreign key must be included in one of the two.
-5. When two entities are in a many-to-many relationship a table must be created consisting of foreign keys for the two entities.
+1. For each strong entity create a table with columns for each simple attribute. The key attribute becomes the primary key
+2. For each weak entity create a table with columns for each simple attribute and include columns for the primary keys of those entities on which the entity depends (foreign keys)
+3. When two entities are in a one-to-many relationship, the entity with the many cardinality must have a foreign key representing this relationship
+4. When two entities are in a one-to-one relationship, a foreign key must be included in one of the two
+5. When two entities are in a many-to-many relationship a table must be created consisting of foreign keys for the two entities
 6. When an entity has a multi-valued attribute, create a table with a column as foreign key to the entity and a column for the multi-valued attribute
-7. When more than two entities participate in a relationship then a table must be created consisting of foreign keys to those entities.
+7. When more than two entities participate in a relationship then a table must be created consisting of foreign keys to those entities
 8. When a subtyping is defined by attributes create separate tables for each subtype consisting of those attributes which are peculier to the subtype
 
 ---
@@ -408,12 +408,13 @@ __Cardinality__ defines the number of participating entities:
 Normalization: ensure efficienct data structures
 
 Efficient data structures:
-- Are not redundant in order to defeat inconsistency and ambiguity
-    - look for update anomalies
-    - look for insert anomalies
-- Have a minimal use of NULL values
-- Prevent loss of information
-    - look for deletion anomalies 
+
+ - Are not redundant in order to defeat inconsistency and ambiguity
+   * look for update anomalies
+   * look for insert anomalies
+ - Have a minimal use of NULL values
+ - Prevent loss of information
+   * look for deletion anomalies 
 
 Common problem: represent entities as (collection) of attributes
 
@@ -427,7 +428,7 @@ Common problem: represent entities as (collection) of attributes
 
 # Database design: Normal forms
 
-A good database schema is in BCNF. 
+A good database schema is in BCNF.
 
 Normal forms: 
 
@@ -449,7 +450,7 @@ Extra data structure to __speed up__ access to a set of records.
 
 # Concepts: Transactions
 
-A transaction is a __logical unit of work__: Group commands into a single transaction with rollback and commit options.
+A transaction is a __logical unit of work__: Group commands into a single transaction with rollback and commit options
 <br>
 ![original 100%](sources/transactions.gif)
 
@@ -457,11 +458,11 @@ A transaction is a __logical unit of work__: Group commands into a single transa
 
 # Concepts: ACID
 
-__Atomicity__: each transaction is all or nothing.
+__Atomicity__: each transaction is all or nothing
 
-__Consistency__: each transaction will bring the database from one valid state to the next.
+__Consistency__: each transaction will bring the database from one valid state to the next
 
-__Isolation__: the concurrent (parallel) execution of transactions has the same result as executing them serially.
+__Isolation__: the concurrent (parallel) execution of transactions has the same result as executing them serially
 
 __Durability__: when a transaction has been completed, it will remain so
 
@@ -489,8 +490,6 @@ __Durability__: when a transaction has been completed, it will remain so
 
 ---
 
-[^1]: [A Relational Model of Data for Large Shared Databanks](). Communications of the ACM, 13, June.
+[^1]: [A Relational Model of Data for Large Shared Databanks](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.94.5224&rep=rep1&type=pdf). Communications of the ACM, 13, Issue 6, June 1970
 
-[^2]: [The Entity-Relationship Model: Toward a unified view of data](). ACM Transactions on Database Systems, 1, March.
-
-
+[^2]: [The Entity-Relationship Model: Toward a unified view of data](http://www.comp.nus.edu.sg/~lingtw/papers/tods76.chen.pdf). ACM Transactions on Database Systems, 1, Issue 1, March 1976

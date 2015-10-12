@@ -148,7 +148,8 @@ Read result setting
 ---
 ### Tunable CAP: Amazon shopping Basket
 
-Amazon uses DynamoDB for shopping baskets. DynamoDB, like Riak is a distributed key-value store where N-R-W can be set for operation.
+Amazon uses DynamoDB for shopping baskets. DynamoDB, like Riak is a distributed
+key-value store where N-R-W can be set for operation.
 
 If you were Amazon, how would you choose N-R-W for a shopping basket?
 
@@ -216,7 +217,6 @@ __Document stores__:
 - CouchBase
 
 ![right 150%](sources/docstores.png)
-
 
 ---
 ### Data model: Graphs
@@ -370,9 +370,3 @@ F1:
 # Questions?
 
 ---
-
-[^1]: [A Relational Model of Data for Large Shared Databanks](). Communications of the ACM, 13, June.
-
-[^2]: [The Entity-Relationship Model: Toward a unified view of data](). ACM Transactions on Database Systems, 1, March.
-
-
