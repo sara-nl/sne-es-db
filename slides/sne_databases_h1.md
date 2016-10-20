@@ -1,4 +1,5 @@
-footer: SURFsara, 12-10-2015
+theme: Olive green, 8
+footer: SURFsara, 20-10-2016
 slidenumbers: true
 autoscale: true
 
@@ -37,7 +38,7 @@ autoscale: true
 - Data models 
 - NewSQL
 
-![inline right 50%](sources/nosql.png)
+![right 50%](sources/nosql.png)
 
 ---
 
@@ -47,7 +48,7 @@ autoscale: true
 - Create an ER model
 - Implement this in PostgreSQL
 - Denormalize and implement in MongoDB
-
+<br>
 ![inline fill 50%](sources/postgresql.png)![inline fill 25%](sources/mongodb.jpg)
 
 ---
@@ -233,7 +234,7 @@ ON table1.column_name = table2.column_name;
 
 Note: `JOIN` is the same as `INNER JOIN`
 
-![inline right 50%](sources/inner_join.png)
+![right 50%](sources/inner_join.png)
 
 ---
 
@@ -263,6 +264,8 @@ Note: 'RIGHT/LEFT JOIN' is the same as `RIGHT/LEFT OUTER JOIN`
 
 
 ![inline, fill 50%](sources/full_outer_join.png) `FULL OUTER JOIN`
+
+See: [Coding Horror: A visual explanation of SQL joins](https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/)
 
 ---
 
@@ -462,6 +465,34 @@ A transaction is a __logical unit of work__: Group commands into a single transa
 
 ---
 
+# Concepts: Concurrency and Locking
+
+__Shared (read) and exclusive (update) locks:__ 
+
+- Shared locks may be placed on shared locks
+
+- An exclusive lock may not be placed on shared locks
+
+- Wen an exclusive lock is placed no other lock may be placed
+
+---
+
+# Concepts: Two-phase locking
+
+Protocol: do not place lock when a lock has been released earlier (i.e. do not release locks before all locks have been placed)
+
+1. TA places S lock on O1
+2. TB places S lock on O1
+3. TA places S lock on O1
+4. TB request X lock on O1 -> denied; TB waits
+5. TA places X lock on O1
+6. TA releases all locks
+7. TB can now place X lock on O1
+8. TB places S lock on O2
+9. TB releases all locks
+
+---
+
 # Concepts: ACID
 
 __Atomicity__: each transaction is all or nothing
@@ -489,6 +520,12 @@ __Durability__: when a transaction has been completed, it will remain so
 ### Scaling relational databases
 
 ![original 100%](sources/scalingrdbms3.png)
+
+---
+
+### Scaling relational databases
+
+![original 100%](sources/cqrsmvc.png)
 
 ---
 

@@ -1,4 +1,5 @@
-footer: SURFsara, 12-10-2015
+theme: Olive green, 8
+footer: SURFsara, 20-10-2016
 slidenumbers: true
 autoscale: true
 
@@ -365,6 +366,14 @@ __F1__:
 
 ### Beware of vendor speak
 ![original 100%](sources/vendorspeak.png)
+
+---
+
+### Further reading
+
+[Recent NoSQL survey and decision guide](https://medium.baqend.com/nosql-databases-a-survey-and-decision-guidance-ea7823a822d#.fzi07pxi9)
+
+![original, inline 100%](sources/guide.png) 
 
 ---
 # Questions?
