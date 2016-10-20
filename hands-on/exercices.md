@@ -35,7 +35,7 @@ ER model for the data. What are the entities, attributes and relations?
  - Determine the candidate keys and choose the primary keys for the entities in your model.
  - Specialise and/or generalise entities where possible.
 
-Hand in a diagram of your model.
+Hand in a diagram of your model (there are several good online tools for this. For example: [https://www.draw.io](https://www.draw.io)).
 
 Based on this model. Convert the ER model into relations (tables) according to the 8 steps:
 
