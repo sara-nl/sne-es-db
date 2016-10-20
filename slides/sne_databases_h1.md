@@ -45,9 +45,14 @@ autoscale: true
 # Today
 
 ## Part III: Hands-on PostgreSQL and MongoDB
+
+Find the exercises here: 
+[https://github.com/sara-nl/sne-es-db/tree/master/hands-on](https://github.com/sara-nl/sne-es-db/tree/master/hands-on)
+
 - Create an ER model
 - Implement this in PostgreSQL
 - Denormalize and implement in MongoDB
+
 <br>
 ![inline fill 50%](sources/postgresql.png)![inline fill 25%](sources/mongodb.jpg)
 
@@ -127,7 +132,7 @@ Derived: JOIN, INTERSECT, DIVIDE
 
 # Data manipulation
 
-__SQL has four data manipulation commands:__
+__SQL has four data manipulation statements:__
 
 *SELECT*: for retrieving data
 *INSERT*: for inserting data
@@ -271,7 +276,7 @@ See: [Coding Horror: A visual explanation of SQL joins](https://blog.codinghorro
 
 # Data definition
 
-__SQL has several data definition commands:__
+__SQL has several data definition statements:__
 
 *CREATE TABLE*: for creating and specifying a table
 *ALTER TABLE*: for altering a table
@@ -473,7 +478,7 @@ __Shared (read) and exclusive (update) locks:__
 
 - An exclusive lock may not be placed on shared locks
 
-- Wen an exclusive lock is placed no other lock may be placed
+- When an exclusive lock is placed no other lock may be placed
 
 ---
 
@@ -482,7 +487,7 @@ __Shared (read) and exclusive (update) locks:__
 Protocol: do not place lock when a lock has been released earlier (i.e. do not release locks before all locks have been placed)
 
 1. TA places S lock on O1
-2. TB places S lock on O1
+2. TB places S lock on O2
 3. TA places S lock on O1
 4. TB request X lock on O1 -> denied; TB waits
 5. TA places X lock on O1
